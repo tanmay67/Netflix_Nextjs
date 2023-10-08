@@ -120,7 +120,7 @@ const Login = () => {
         </p>
       </form> */}
 
-      <form className="w-2/3 md:w-1/3 p-12 bg-black mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+      <form className="w-2/3 md:w-1/3 p-5 sm:p-12 bg-black mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
         <h1 className="font-bold text-3xl py-4">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
@@ -128,21 +128,21 @@ const Login = () => {
           <input
             type="text"
             placeholder="Full Name"
-            className="p-4 my-4 w-full bg-gray-700"
+            className="p-4 my-4 w-full bg-gray-700 text-xs sm:text-sm"
             ref={name}
           />
         )}
         <input
           type="text"
           placeholder="Email Address"
-          className="p-4 my-4 w-full bg-gray-700 "
+          className="p-4 my-4 w-full bg-gray-700 text-xs sm:text-sm"
           ref={email}
         />
 
         <input
           type="password"
           placeholder="Password"
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-4 my-4 w-full bg-gray-700 text-xs sm:text-sm"
           ref={password}
         />
         <button

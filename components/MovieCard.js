@@ -4,7 +4,7 @@ import { IMG_CDN_URL } from "@utils/constants";
 
 const MovieCard = ({ movie }) => {
   return (
-    <li className="w-[8rem] sm:w-[10rem] h-[15rem] cursor-pointer relative z-0 transition-all duration-500 hover:scale-150 hover:z-[1000000]">
+    <li className="w-[8rem] sm:w-[10rem] h-[15rem] cursor-pointer relative z-0 transition-all duration-500 sm:hover:scale-150 hover:z-[1000000]">
       <img
         id={movie.id}
         className="w-[8rem] sm:w-[10rem] h-full max-w-none object-cover"
