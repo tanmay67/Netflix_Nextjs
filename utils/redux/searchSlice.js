@@ -44,6 +44,9 @@ const searchSlice = createSlice({
     toggleSearchView: (state, action) => {
       state.showSearch = !state.showSearch;
     },
+    homeView: (state, action) => {
+      state.showSearch = false;
+    },
     changeSearchText: (state, action) => {
       state.searchText = action.payload;
     },
@@ -74,7 +77,11 @@ const searchSlice = createSlice({
   },
 });
 
-export const { toggleSearchView, changeSearchText, clearSearchResults } =
-  searchSlice.actions;
+export const {
+  toggleSearchView,
+  changeSearchText,
+  clearSearchResults,
+  homeView,
+} = searchSlice.actions;
 
 export default searchSlice.reducer;

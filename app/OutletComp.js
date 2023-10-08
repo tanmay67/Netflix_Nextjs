@@ -20,16 +20,19 @@ const OutletComp = ({ children }) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
         setLoading(true);
-        setTimeout(() => {
-          console.log(user);
-          const { uid, email, displayName, photoURL } = user;
-          dispatch(addUser({ uid, email, displayName, photoURL }));
 
-          if (window.location.pathname === "/") {
-            router.replace("/browse/");
-          }
+        console.log(user);
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(addUser({ uid, email, displayName, photoURL }));
+
+        if (window.location.pathname === "/") {
+          router.replace("/browse/");
+          setTimeout(() => {
+            setLoading(false);
+          }, 4000);
+        } else {
           setLoading(false);
-        }, 4000);
+        }
 
         // ...
       } else {

@@ -4,10 +4,12 @@ import { NETFLIX_LOGO } from "@utils/constants";
 import { BiSearch } from "react-icons/bi";
 import { GoHomeFill } from "react-icons/go";
 import Dropdown from "./Dropdown";
-import { toggleSearchView } from "@utils/redux/searchSlice";
+import { homeView, toggleSearchView } from "@utils/redux/searchSlice";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const userInfo = useSelector((state) => {
     return state.userSlice;
   });
@@ -17,12 +19,21 @@ const Header = () => {
 
   const handleSearchClick = () => {
     // toggle search component
-    dispatch(toggleSearchView());
+    if (window.location.pathname === "/browse") dispatch(toggleSearchView());
+    router.push("/browse/");
+  };
+
+  const goToHomePage = () => {
+    dispatch(homeView());
+    router.push("/browse");
   };
 
   return (
     <div className="absolute w-full top-0 left-0 z-10 py-2 px-2 bg-gradient-to-b from-black flex justify-between">
-      <span className="flex w-[5rem] sm:w-[8rem]">
+      <span
+        className="flex w-[5rem] sm:w-[8rem] cursor-pointer"
+        onClick={goToHomePage}
+      >
         <img
           style={{ width: "inherit", height: "inherit" }}
           className="object-contain"
