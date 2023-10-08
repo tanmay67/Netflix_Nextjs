@@ -15,6 +15,10 @@ const Dropdown = ({ photo, name }) => {
     setShowDropdown(false);
   };
 
+  const changeDropdownState = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   const onSignOut = () => {
     try {
       signOut(auth);
@@ -25,7 +29,11 @@ const Dropdown = ({ photo, name }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <button onClick={onFocus} onFocus={onFocus} onBlur={onBlur}>
+      <button
+        onClick={changeDropdownState}
+        // onFocus={onFocus}
+        onBlur={onBlur}
+      >
         <img
           className="w-12 h-12 scale-75 sm:scale-100 rounded-lg object-cover"
           alt="usericon"
